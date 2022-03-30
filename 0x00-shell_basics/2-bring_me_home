@@ -1,2 +1,3 @@
 #!/bin/bash
-alias proj = " cd /root"
+cd $HOME
+exec bash
