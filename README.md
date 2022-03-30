@@ -1,0 +1,1 @@
+display current dirctory script
