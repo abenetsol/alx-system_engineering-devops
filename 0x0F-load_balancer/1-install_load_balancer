@@ -1,7 +1,14 @@
 #!/usr/bin/env bash
-# Install haproxy and config 2 server
-apt-get update
+# Install HAProxy and configure the load balancer with 2 web servers
+
+apt-get -y update
 apt-get -y install haproxy=1.6.\*
-echo "ENABLED=1" >> /etc/default/haproxy
-sed -i '/504.http/a \\nlisten http-in\n\tbind *:80\n\tmode http\n\tbalance roundrobin\n\tserver 41056-web-01 3.229.138.221:80 check\n\tserver 41056-web-02 35.153.78.63:80 check' /etc/haproxy/haproxy.cfg
-sudo service haproxy start
+echo "backend web-backend
+        balance roundrobin
+        server 41056-web-01 3.229.138.221:80 check
+        server 41056-web-02 35.153.78.63:80 check" >> /etc/haproxy/haproxy.cfg
+echo "frontend http
+        bind *:80\
+        mode http
+        default_backend web-backend" >> /etc/haproxy/haproxy.cfg
+service haproxy restart
