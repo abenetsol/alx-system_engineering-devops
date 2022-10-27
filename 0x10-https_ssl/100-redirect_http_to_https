@@ -30,7 +30,7 @@ frontend front_http
 	default_backend back_http
 
 frontend front_https
-	bind 0.0.0.0:443 ssl crt /etc/letsencrypt/live/www.gizachew-bayness.tech/all.pem
+	bind 0.0.0.0:443 ssl crt /etc/letsencrypt/live/www.abenetsol.tech/all.pem
 	acl    letsencrypt-acl path_beg /.well-known/acme-challenge/
 	 	 use_backend letsencrypt-backend if letsencrypt-acl
 	default_backend back_http
