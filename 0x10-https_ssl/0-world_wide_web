@@ -23,4 +23,4 @@ elif [ "${#BASH_ARGV[@]}" -ge '1' ]; then
     fetch_subdomains "$1" "www lb-01 web-01 web-02"
 else
     exit
-    fi
+fi
