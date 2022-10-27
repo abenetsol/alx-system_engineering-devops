@@ -37,18 +37,18 @@ defaults
 # HAproxy for web servers
 # Setting up SSL from tutorial
 
-frontend http
+frontend front_http
 	 bind *:80
 	 http-request set-header X-Forwarded-For %[src]
 	 http-request set-header X-Forwarded-Proto https if { ssl_fc }
 	 default_backend http-backend
 
-frontend https
-	 bind *:443 ssl crt /etc/letsencrypt/live/www.anabelemebo.tech.pem
+frontend front_https
+	 bind *:443 ssl crt /etc/letsencrypt/live/www.abenetsol.tech.pem
 	 http-request set-header X-Forwarded-For %[src]
 	 http-request set-header X-Forwarded-Proto https if { ssl_fc }
 	 acl letsencrypt-acl path_beg /.well-known/acme-challenge/
-	 use_backend letsencrypt-backend if letsencrypt-acl
+	       use_backend letsencrypt-backend if letsencrypt-acl
 	 default_backend http-backend
 
 backend http-backend
@@ -58,5 +58,5 @@ backend http-backend
 	server 41056-web-02 35.153.78.63:80 check
 
 backend letsencrypt-backend
-	server letsencrypt 127.0.0.1:54321
+	server letsencrypt 127.0.0.1:8888
 	
