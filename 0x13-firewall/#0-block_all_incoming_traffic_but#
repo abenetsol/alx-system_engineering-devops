@@ -1,6 +1,3 @@
-sudo apt-get install ufw
-sudo apt-get update
-sudo apt-get upgrade
 sudo ufw default deny incoming
 sudo ufw allow 22
 sudo ufw allow 443
