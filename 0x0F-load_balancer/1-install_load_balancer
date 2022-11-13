@@ -8,7 +8,7 @@ sudo apt-get -y install haproxy
 sudo chown -R "$USER":"$USER" /etc/default/haproxy
 sudo chown -R "$USER":"$USER" /etc/haproxy/haproxy.cfg 
 # the load balancer's configuration
-DOMAIN_NAME='beta-scribbles.tech'
+DOMAIN_NAME='abenetsol.tech'
 INIT_FILE='/etc/default/haproxy'
 CONFIG_FILE='/etc/haproxy/haproxy.cfg'
 HAPROXY_LB_CONFIG=\
