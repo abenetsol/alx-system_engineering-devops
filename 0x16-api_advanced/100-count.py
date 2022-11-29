@@ -2,7 +2,6 @@
 """ Module for storing the count_words function. """
 from requests import get
 
-
 def count_words(subreddit, word_list, word_count=[], page_after=None):
     """
     Prints the count of the given words present in the title of the
@@ -61,3 +60,4 @@ def count_words(subreddit, word_list, word_count=[], page_after=None):
                 for key, value in sorted(dicto.items(),
                                          key=lambda x: (-x[1], x[0])):
                     print('{}: {}'.format(key, value))
+
