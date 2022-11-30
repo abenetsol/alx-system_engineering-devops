@@ -1,4 +1,15 @@
 #!/usr/bin/env bash
+<<<<<<< HEAD
+# configures an Nginx server so that /redirect_me is redirecting to another page
+sudo apt-get -y update
+sudo apt-get -y install nginx
+<<<<<<< HEAD
+sed -i "s/server_name _;/server_name _;\n\trewrite ^\/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;/" /etc/nginx/sites-available/default
+=======
+sed -i "s/server_name _;/server_name _;\n\trewrite ^\/redirect_me https:\/\/github.com\/luischaparroc permanent;/" /etc/nginx/sites-available/default
+>>>>>>> 6afffbace2d27044184074a6f9de62b2d759060f
+sudo service nginx start
+=======
 # Configures an nginx server so that /redirect_me redirects to a new page
 
 sudo apt-get update && sudo apt-get install nginx -y
@@ -23,3 +34,4 @@ redirection=\
 echo -e "$redirection" > /etc/nginx/sites-available/default
 
 sudo service nginx restart
+>>>>>>> df8599058a4b0e6c4dc9cf7e44b7ce4f0c621500
